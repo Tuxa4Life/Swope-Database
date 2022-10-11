@@ -12,6 +12,7 @@ const App = () => {
             params: {},
         }).then(function (response) {
             console.log(response)
+                console.log(response.data.data)
                 setData(response.data.data)
         }).catch(function (error) {
                 // handle error
@@ -21,22 +22,23 @@ const App = () => {
 
 
     const elements = data.map(e => {
-        return <Element key={e.ID} id={e.ID} username={e.Username} email={e.Email} password={e.Password} date={e.Date}/>
+        return <Element key={e.ID} deleteId={e.row_id} id={e.ID} username={e.Username} email={e.Email} password={e.Password} date={e.Date}/>
     })
 
     return (
         <table className="ui striped table">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Username</th>
-                    <th>Email</th>
-                    <th>Password</th>
-                    <th>Date</th>
+                    <th style={{color: 'purple'}}>ID</th>
+                    <th style={{color: 'black'}}h>Username</th>
+                    <th style={{color: 'blue'}}>Email</th>
+                    <th style={{color: 'darkblue'}}>Password</th>
+                    <th style={{color: 'green'}}>Date</th>
                 </tr>
             </thead>
             <tbody>
                 { elements }
+                <Element id={123123123} username={'username123'} email={'email12@gmail.com'} password={'password123'} date={'10/11/22'}/>
             </tbody>
         </table>
     )
